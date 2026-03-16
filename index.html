@@ -1,205 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Ewin Sheen Chungath</title>
+    <title>Ewin Sheen Chungath</title>
 
-<style>
-
-body{
-margin:0;
-background:black;
-color:white;
-font-family:Arial, sans-serif;
-overflow:hidden;
-}
-
-/* INTRO SCREEN */
-
-.intro{
-position:fixed;
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-background:black;
-animation:fadeOut 2s ease 5.5s forwards;
-z-index:10;
-}
-
-.name{
-font-size:60px;
-letter-spacing:6px;
-opacity:0;
-animation:fadeIn 2s ease forwards;
-}
-
-.line{
-width:0;
-height:3px;
-background:#00ffff;
-margin:20px auto;
-animation:expand 2s ease 1s forwards;
-}
-
-.sub{
-color:#aaa;
-font-size:18px;
-opacity:0;
-animation:fadeIn 2s ease 2s forwards;
-}
-
-/* MAIN PAGE */
-
-.main{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:left;
-padding:40px;
-
-opacity:0;
-animation:showMain 2s ease 6.5s forwards;
-}
-
-/* PROFILE IMAGE */
-
-.profile{
-width:40%;
-display:flex;
-justify-content:center;
-}
-
-.profile img{
-width:300px;
-
-}
-
-/* BIO */
-
-.bio{
-width:50%;
-}
-
-.bio h1{
-font-size:45px;
-margin-bottom:10px;
-}
-
-.bio p{
-font-size:20px;
-color:#bbb;
-line-height:1.6;
-}
-
-/* BOTTOM MENU */
-
-.menu{
-position:fixed;
-bottom:20px;
-width:100%;
-text-align:center;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-margin:0 30px;
-font-size:18px;
-transition:0.3s;
-}
-
-.menu a:hover{
-color:#00ffff;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeIn{
-0%{opacity:0; transform:translateY(40px);}
-100%{opacity:1; transform:translateY(0);}
-}
-
-@keyframes showMain{
-0%{
-opacity:0;
-transform:translateY(40px);
-}
-100%{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes expand{
-0%{width:0;}
-100%{width:300px;}
-}
-
-@keyframes fadeOut{
-100%{opacity:0; visibility:hidden;}
-}
-
-</style>
+    <link rel="stylesheet" href="index.css">
 
 </head>
 
 <body>
 
-<!-- INTRO -->
+    <!-- INTRO -->
 
-<div class="intro">
+    <div class="intro">
 
-<div class="name">
-EWIN SHEEN CHUNGATH
-</div>
+        <div class="name">
+            EWIN SHEEN CHUNGATH
+        </div>
 
-<div class="line"></div>
-
-<div class="sub">
-Welcome to my portfolio
-</div>
-
-</div>
-
-<!-- MAIN PORTFOLIO -->
-
-<div class="main">
-
-<div class="profile">
-<img src="C:\Users\ewinc\OneDrive\Desktop\ff.jpeg">
-</div>
-
-<div class="bio">
+        <div class="line"></div>
 
 
 
-<p>
-I am a second-year B.Tech student specializing in 
-Artificial Intelligence and Data Science. I am passionate 
-about technology, problem-solving, and building innovative 
-solutions using modern computing techniques.
+    </div>
 
-Currently, I am exploring areas such as machine learning,
-data analysis, and intelligent systems while developing
-projects that combine creativity with technical skills.
-</p>
+    <!-- MAIN PORTFOLIO -->
 
-</div>
+    <div class="main">
 
-</div>
+        <div class="profile">
+            <img src="pp.png">
+        </div>
 
-<!-- BOTTOM MENU -->
+        <div class="bio">
 
-<div class="menu">
 
-<a href="projects.html">Projects</a>
-<a href="skills.html">Skills</a>
-<a href="contact.html">Contact</a>
-<a href="resume.html">Resume</a>
 
-</div>
+            <p>
+                I am a second-year B.Tech student specializing in
+                Artificial Intelligence and Data Science. I am passionate
+                about technology, problem-solving, and building innovative
+                solutions using modern computing techniques.
+
+                Currently, I am exploring areas such as machine learning,
+                data analysis, and intelligent systems while developing
+                projects that combine creativity with technical skills.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM MENU -->
+
+    <div class="menu">
+
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+        <a href="Resume-Fin-Ewin.pdf" target="_blank">Resume</a>
+    </div>
+
 </body>
+
 </html>
