@@ -1,7 +1,17 @@
+:root {
+    --bg-color: #fcfaf7;
+    --primary-color: #5a3e2b;
+    --accent-color: #c18c5d;
+    --text-main: #4a3b32;
+    --text-muted: #6b5b50;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(90, 62, 43, 0.1);
+}
+
 body {
     margin: 0;
-    background: #fdf5e6;
-    color: #4a3b32;
+    background: var(--bg-color);
+    color: var(--text-main);
     font-family: Arial, sans-serif;
     overflow-x: hidden;
     display: flex;
@@ -11,18 +21,34 @@ body {
     min-height: 100vh;
 }
 
+.corner-name {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    z-index: 1001;
+    pointer-events: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-
-
 .bento-container {
     width: 90%;
     max-width: 900px;
-    padding-bottom: 80px; 
-    margin-top: 40px;
+    margin: 40px auto 140px; /* Increased bottom margin for floating menu */
+    padding-bottom: 20px;
     animation: fadeIn 0.5s ease forwards;
 }
 
@@ -32,16 +58,16 @@ body {
 }
 
 .bento-header h1 {
-    font-size: 50px;
-    margin: 0 0 15px 0;
-    letter-spacing: 2px;
+    font-size: 32px;
+    color: var(--primary-color);
+    margin: 0;
 }
 
 .bento-header p {
-    font-size: 18px;
-    color: #6b5b50;
+    font-size: 16px;
+    color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 10px auto 0;
     line-height: 1.6;
 }
 
@@ -53,13 +79,13 @@ body {
 }
 
 .bento-item {
-    background: rgba(139, 69, 19, 0.05);
-    border: 1px solid rgba(139, 69, 19, 0.1);
-    border-radius: 20px;
-    padding: 35px;
+    background: rgba(90, 62, 43, 0.05);
+    border: 1px solid rgba(90, 62, 43, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
     text-decoration: none;
-    color: #4a3b32;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--text-main);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,9 +95,9 @@ body {
 
 .bento-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(139, 69, 19, 0.15);
-    background: rgba(139, 69, 19, 0.08);
-    border-color: rgba(139, 69, 19, 0.3);
+    box-shadow: 0 15px 30px rgba(90, 62, 43, 0.1);
+    background: rgba(90, 62, 43, 0.08);
+    border-color: rgba(90, 62, 43, 0.2);
 }
 
 .bento-item::before {
@@ -81,7 +107,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background: #8b4513;
+    background: var(--accent-color);
     transform: scaleX(0);
     transition: transform 0.4s ease;
     transform-origin: right;
@@ -94,7 +120,7 @@ body {
 
 .bento-item i {
     font-size: 40px;
-    color: #8b4513;
+    color: var(--accent-color);
     margin-bottom: 20px;
     transition: transform 0.4s ease;
 }
@@ -109,7 +135,7 @@ body {
 }
 
 .bento-item span {
-    color: #6b5b50;
+    color: var(--text-muted);
     font-size: 16px;
     font-weight: bold;
 }
@@ -144,45 +170,36 @@ body {
     text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-    }
-    .email, .phone, .social {
-        grid-column: span 1;
-    }
-    .email {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    .bento-container {
-        margin-top: 80px;
-    }
-}
-
+/* RESPONSIVE STYLES */
 .menu {
     position: fixed;
-    bottom: 15px;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-    background: linear-gradient(to top, #fdf5e6 60%, transparent);
-    padding: 20px 0;
-    opacity: 1;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .menu a {
-    color: #4a3b32;
-    margin: 0 30px;
+    color: var(--text-main);
+    margin: 0 15px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     transition: 0.3s;
-    font-weight: bold;
+    font-weight: 600;
     position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
+    padding: 5px 0;
 }
 
 .menu a::before {
@@ -192,7 +209,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #8b4513;
+    background-color: var(--accent-color);
     transform: scaleX(0);
     transition: transform 0.3s ease;
     transform-origin: right;
@@ -204,6 +221,54 @@ body {
 }
 
 .menu a:hover {
-    color: #8b4513;
+    color: var(--accent-color);
     transform: translateY(-2px);
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .corner-name {
+        top: 15px;
+        left: 15px;
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .bento-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding-bottom: 120px;
+        margin-top: 100px;
+    }
+
+    .bento-header, .bento-social, .bento-location, .bento-form {
+        grid-column: 1 / -1;
+    }
+
+    .email {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .menu {
+        padding: 10px 15px;
+        bottom: 20px;
+        border-radius: 30px;
+        width: 90%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu a {
+        margin: 0 10px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
 }
