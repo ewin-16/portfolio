@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #fcfaf7;
     --primary-color: #5a3e2b;
@@ -13,7 +17,12 @@ body {
     background: var(--bg-color);
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
-    overflow-x: hidden;
+    overflow: hidden; /* Prevent scrolling for "one-screen" feel on desktop */
+    width: 100%;
+}
+
+html {
+    overflow: hidden;
 }
 
 .corner-name {
@@ -66,12 +75,16 @@ body {
 }
 
 
-.container{
-padding:80px 40px 120px;
-text-align:center;
-max-width: 1000px;
-margin: 0 auto;
-animation: fadeIn 0.5s ease forwards;
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 40px 80px; /* Reduced padding */
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -81,24 +94,24 @@ animation: fadeIn 0.5s ease forwards;
 
 
 
-h1{
-font-size:50px;
-margin-bottom:60px;
-letter-spacing: 2px;
+h1 {
+    font-size: 38px; /* Reduced from 50px */
+    margin-bottom: 30px; /* Reduced from 60px */
+    letter-spacing: 2px;
 }
 
 .projects-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 20px;
-margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Reduced from 20px */
+    margin-bottom: 20px;
 }
 
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 200px; /* Further reduced to ensure 2x2 fits better */
-    perspective: 1000px; /* 3D effect */
+    height: 180px; /* Reduced from 200px */
+    perspective: 1000px;
 }
 
 /* Inner container holding both sides */
@@ -167,8 +180,8 @@ margin-bottom: 40px;
 
 .project-desc {
     color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 13.5px; /* Reduced from 15px */
+    line-height: 1.4; /* Tighter line height */
     text-align: center;
 }
 
@@ -236,7 +249,13 @@ margin-bottom: 40px;
     }
 
     .container {
+        height: auto;
+        min-height: 100vh;
         padding: 100px 20px 120px;
+    }
+
+    body, html {
+        overflow-y: auto; /* Allow scroll on mobile */
     }
 
     h1 {
