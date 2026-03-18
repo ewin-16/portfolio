@@ -47,6 +47,52 @@ html {
     border: 1px solid var(--glass-border);
 }
 
+.home-sections-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    gap: 25px;
+    z-index: 1001;
+    opacity: 0;
+    animation: showMain 2s ease 6.0s forwards;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+}
+
+.home-sections-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    position: relative;
+    padding: 4px 0;
+}
+
+.home-sections-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent-color);
+    transition: 0.3s;
+}
+
+.home-sections-nav a:hover {
+    color: var(--accent-color);
+}
+
+.home-sections-nav a:hover::after {
+    width: 100%;
+}
+
 /* SKIP INTRO STATE */
 .skip-intro .intro {
     display: none !important;
@@ -55,6 +101,7 @@ html {
 .skip-intro .main,
 .skip-intro .menu,
 .skip-intro .corner-name,
+.skip-intro .home-sections-nav,
 .skip-intro .extra-sections {
     opacity: 0;
     animation: fadeIn 0.5s ease 0.1s forwards !important;
@@ -279,6 +326,13 @@ html {
     align-items: center;
 }
 
+.certificates .scroll-list a {
+    text-decoration: none;
+    width: 100%;
+    max-width: 700px;
+    display: block;
+}
+
 .scroll-item {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -292,6 +346,7 @@ html {
     gap: 30px;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
 }
 
 .scroll-item:hover {
@@ -392,44 +447,6 @@ html {
     box-shadow: 0 0 10px rgba(193, 140, 93, 0.3);
 }
 
-@media (max-width: 768px) {
-    .extra-sections {
-        padding-top: 50px;
-    }
-    
-    .scroll-item {
-        padding: 20px;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .circle-item {
-        border-radius: 30px;
-    }
-
-    .activities .scroll-list {
-        justify-content: flex-start; /* Start for scrolling on mobile */
-        overflow-x: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        padding: 20px 10px;
-        gap: 15px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .activities .scroll-list::-webkit-scrollbar {
-        display: none;
-    }
-
-    .activities .scroll-item {
-        width: 180px; /* Same size for all on mobile */
-        height: 180px; /* Force square/consistent size */
-    }
-
-    .scroll-dots {
-        display: flex;
-    }
-}
 
 /* ANIMATIONS */
 
@@ -477,6 +494,57 @@ html {
 
 /* RESPONSIVE STYLES */
 
+/* TABLET RESPONSIVENESS (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .extra-sections {
+        padding: 40px 20px 120px;
+    }
+
+    .main {
+        padding: 60px 40px;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .profile img {
+        width: 180px;
+    }
+
+    .bio h1 {
+        font-size: 30px;
+    }
+
+    .corner-name, .home-sections-nav {
+        top: 20px;
+        font-size: 13px;
+    }
+
+    .corner-name {
+        left: 20px;
+    }
+
+    .home-sections-nav {
+        right: 20px;
+        gap: 15px;
+        padding: 6px 18px;
+    }
+
+    .activities .scroll-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        overflow-x: hidden;
+    }
+
+    .activities .scroll-item {
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+    }
+}
+
+/* MOBILE RESPONSIVENESS (up to 768px) */
 @media (max-width: 768px) {
     .name {
         font-size: 36px;
@@ -492,6 +560,16 @@ html {
         padding: 6px 12px;
     }
 
+    .home-sections-nav {
+        top: 15px;
+        right: 15px;
+        gap: 15px;
+        padding: 6px 15px;
+    }
+
+    .home-sections-nav a {
+        font-size: 11px;
+    }
 
     .main {
         flex-direction: column;
@@ -539,6 +617,43 @@ html {
         margin: 0 10px;
         font-size: 13px;
         white-space: nowrap;
+    }
+
+    .extra-sections {
+        padding-top: 50px;
+    }
+    
+    .scroll-item {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .circle-item {
+        border-radius: 30px;
+    }
+
+    .activities .scroll-list {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 20px 10px;
+        gap: 15px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .activities .scroll-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .activities .scroll-item {
+        width: 180px;
+        height: 180px;
+    }
+
+    .scroll-dots {
+        display: flex;
     }
 }
 
