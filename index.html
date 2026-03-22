@@ -8,41 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        // Check if user is coming from another internal page via #skip hash
-        (function() {
-            if (window.location.hash === '#skip') {
-                document.documentElement.classList.add('skip-intro');
-                // Clean up the URL hash so reloads still play the intro
-                history.replaceState(null, document.title, window.location.pathname + window.location.search);
-            }
-        })();
 
-        // Scroll Dots Logic for Activities
-        window.addEventListener('DOMContentLoaded', () => {
-            const scrollContainer = document.getElementById('activities-scroll');
-            const dots = document.querySelectorAll('.scroll-dots .dot');
-            
-            if (scrollContainer && dots.length > 0) {
-                scrollContainer.addEventListener('scroll', () => {
-                    const scrollLeft = scrollContainer.scrollLeft;
-                    const itemWidth = scrollContainer.querySelector('.scroll-item').offsetWidth + 30; // Match CSS gap
-                    const activeIndex = Math.round(scrollLeft / itemWidth);
-                    
-                    dots.forEach((dot, index) => {
-                        if (index === activeIndex) {
-                            dot.classList.add('active');
-                        } else {
-                            dot.classList.remove('active');
-                        }
-                    });
-                });
-            }
-        });
-    </script>
 </head>
 
 <body>
+    <div id="skip"></div>
     <div class="corner-name">EWIN SHEEN CHUNGATH</div>
 
     <div class="home-sections-nav">
@@ -94,7 +64,7 @@
 
     <!-- NEW SECTIONS (SCROLL DOWN) -->
     <div class="extra-sections">
-        
+
         <!-- Certificates & Achievements -->
         <section class="home-section certificates" id="certificates">
             <h2 class="section-title"><i class="fa-solid fa-award"></i> Certificates & Achievements</h2>
@@ -135,18 +105,20 @@
             <div class="scroll-list" id="activities-scroll">
                 <div class="scroll-item square-item">
                     <div class="item-icon">
-                        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            xmlns="http://www.w3.org/2000/svg">
                             <!-- Racket Frame -->
                             <ellipse cx="10" cy="8" rx="6" ry="7" transform="rotate(-40 10 8)" />
                             <!-- Racket Strings (Simplified) -->
-                            <path d="M7 5.5 L13 10.5 M5.5 7 L10.5 13" stroke-width="0.8" opacity="0.6"/>
+                            <path d="M7 5.5 L13 10.5 M5.5 7 L10.5 13" stroke-width="0.8" opacity="0.6" />
                             <!-- Racket Handle/Shaft -->
                             <path d="M14.5 12.5 L20 18 L22 22" />
                             <path d="M19 17 L22 20" stroke-width="2" />
                             <!-- Shuttlecock -->
-                            <path d="M16 4 L18 2 L22 6 L20 8" fill="currentColor" stroke="none" opacity="0.2"/>
+                            <path d="M16 4 L18 2 L22 6 L20 8" fill="currentColor" stroke="none" opacity="0.2" />
                             <path d="M16 4 L18 2 L22 6 L20 8 M19 5 L17 7 M21 3 L19 1" />
-                            <circle cx="16.5" cy="4.5" r="1.5" fill="currentColor" stroke="none"/>
+                            <circle cx="16.5" cy="4.5" r="1.5" fill="currentColor" stroke="none" />
                         </svg>
                     </div>
                     <h3>Badminton</h3>
@@ -164,15 +136,8 @@
                     <h3>Chess</h3>
                 </div>
             </div>
-            <!-- Scroll Indicator Dots (Mobile Only) -->
-            <div class="scroll-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
         </section>
-        
+
     </div>
 
     <!-- BOTTOM MENU -->
