@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio website!
 
 ## Live Demo
-🔗 **[Add link to your live portfolio here (e.g., https://ewin-16.github.io/portfolio)]**
+🔗 **[https://ewin-16.github.io/portfolio/]**
 
 ## About The Project
 This repository contains the source code for my personal portfolio. It is designed to showcase my skills, projects, and academic background in Artificial Intelligence and Data Science.
